@@ -1,4 +1,4 @@
-import 'package:expenses_app/widgets/period/period_option.dart';
+import 'package:expenses_app/widgets/buttons/simple_text_button.dart';
 import 'package:flutter/material.dart';
 
 class PeriodOptionsList extends StatefulWidget {
@@ -18,25 +18,29 @@ class _PeriodOptionsListState extends State<PeriodOptionsList> {
     'Period',
   ];
 
-  void _onSelect(String period) {
-    var periodIndex = _periods.indexOf(period);
+  void _onSelect(String option) {
+    var periodIndex = _periods.indexOf(option);
     setState(() {
       _selectedIndex = periodIndex;
     });
-
   }
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: _periods
-            .map((period) => PeriodOption(
-                  text: period,
-                  isSelected: _periods.indexOf(period) == _selectedIndex,
-                  onTap: () => _onSelect(period),
+            .map((option) => SimpleTextButton(
+                  text: option,
+                  onPressed: () => _onSelect(option),
+                  textStyle: TextStyle(
+                    color: _periods.indexOf(option) == _selectedIndex
+                        ? Colors.white
+                        : Colors.grey.withOpacity(0.7),
+                    fontSize: 18,
+                  ),
                 ))
             .toList(),
       ),

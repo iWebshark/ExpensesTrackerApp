@@ -27,37 +27,40 @@ class CustomPieChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Center(
-          child: Padding(
-            padding: const EdgeInsets.only(top: 70),
-            child: Column(
-              children: [
-                Text(
-                  'Expenses',
-                  style: TextStyle(color: Colors.grey),
-                ),
-                Text(
-                  'USD 1010,06',
-                  style: TextStyle(color: Colors.white, fontSize: 18),
-                ),
-                SizedBox(height: 11),
-                Text(
-                  'Budget',
-                  style: TextStyle(color: Colors.grey),
-                ),
-                Text(
-                  'USD 1500',
-                  style: TextStyle(color: Colors.white, fontSize: 15),
-                ),
-              ],
+    return Container(
+      height: 220,
+      child: Stack(
+        children: [
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.only(top: 70),
+              child: Column(
+                children: [
+                  Text(
+                    'Expenses',
+                    style: TextStyle(color: Colors.grey),
+                  ),
+                  Text(
+                    'USD 1010,06',
+                    style: TextStyle(color: Colors.white, fontSize: 18),
+                  ),
+                  SizedBox(height: 11),
+                  Text(
+                    'Budget',
+                    style: TextStyle(color: Colors.grey),
+                  ),
+                  Text(
+                    'USD 1500',
+                    style: TextStyle(color: Colors.white, fontSize: 15),
+                  ),
+                ],
+              ),
             ),
           ),
-        ),
-        buildPieChart(borderedChart: false),
-        buildPieChart(borderedChart: true),
-      ],
+          buildPieChart(borderedChart: false),
+          buildPieChart(borderedChart: true),
+        ],
+      ),
     );
   }
 
