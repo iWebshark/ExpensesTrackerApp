@@ -12,9 +12,9 @@ class SortingDropdownModal extends StatelessWidget {
           top: MediaQuery.of(context).size.height / 2 - 45,
           child: Container(
             decoration: BoxDecoration(
-              color: Color(0xFF181B24),
-              borderRadius:
-              BorderRadius.all(Radius.circular(10)),
+              // color: Color(0xFF181B24),
+              color: Theme.of(context).dialogTheme.backgroundColor,
+              borderRadius: BorderRadius.all(Radius.circular(10)),
             ),
             width: 170,
             child: Column(
@@ -24,72 +24,120 @@ class SortingDropdownModal extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(
-                        Icons.add,
-                        color: Colors.white,
+                      Container(
+                        width: 75,
+                        child: Icon(
+                          Icons.add,
+                          color: Theme.of(context).iconTheme.color,
+                        ),
                       ),
-                      SizedBox(width: 10,),
-                      Text(
-                        'New',
-                        style: TextStyle(
-                            color: Colors.white, fontSize: 15),
+                      Container(
+                        width: 75,
+                        child: Text(
+                          'New',
+                          style: TextStyle(
+                              color: Theme.of(context).textTheme.headline6!.color,
+                              fontSize: 15),
+                        ),
                       )
                     ],
                   ),
                 ),
-                Divider(thickness: 2, height: 2, color: Color(0xFF21242E),),
+                Divider(
+                  thickness: 2,
+                  height: 2,
+                  color: Theme.of(context)
+                      .textTheme
+                      .headline6!
+                      .color!
+                      .withOpacity(0.05),
+                ),
                 TextButton(
                   onPressed: () {},
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(
-                        Icons.arrow_upward,
-                        color: Colors.white,
+                      Container(
+                        width: 75,
+                        child: Icon(
+                          Icons.arrow_upward,
+                          color: Theme.of(context).iconTheme.color,
+                        ),
                       ),
-                      SizedBox(width: 10,),
-                      Text(
-                        'High %',
-                        style: TextStyle(
-                            color: Colors.white, fontSize: 15),
+                      Container(
+                        width: 75,
+                        child: Text(
+                          'High %',
+                          style: TextStyle(
+                              color: Theme.of(context).textTheme.headline6!.color,
+                              fontSize: 15),
+                        ),
                       )
                     ],
                   ),
                 ),
-                Divider(thickness: 2, height: 2, color: Color(0xFF21242E),),
+                Divider(
+                  thickness: 2,
+                  height: 2,
+                  color: Theme.of(context)
+                      .textTheme
+                      .headline6!
+                      .color!
+                      .withOpacity(0.05),
+                ),
                 TextButton(
                   onPressed: () {},
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(
-                        Icons.arrow_downward,
-                        color: Colors.white,
+                      Container(
+                        width: 75,
+                        child: Icon(
+                          Icons.arrow_downward,
+                          color: Theme.of(context).iconTheme.color,
+                        ),
                       ),
-                      SizedBox(width: 10,),
-                      Text(
-                        'Low %',
-                        style: TextStyle(
-                            color: Colors.white, fontSize: 15),
+                      Container(
+                        width: 75,
+                        child: Text(
+                          'Low %',
+                          style: TextStyle(
+                              color: Theme.of(context).textTheme.headline6!.color,
+                              fontSize: 15),
+                        ),
                       )
                     ],
                   ),
                 ),
-                Divider(thickness: 2, height: 2, color: Color(0xFF21242E),),
+                Divider(
+                  thickness: 2,
+                  height: 2,
+                  color: Theme.of(context)
+                      .textTheme
+                      .headline6!
+                      .color!
+                      .withOpacity(0.05),
+                ),
                 TextButton(
                   onPressed: () {},
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(
-                        Icons.grid_on,
-                        color: Colors.white,
+                      Container(
+                        width: 75,
+                        child: Icon(
+                          Icons.grid_on,
+                          color: Theme.of(context).iconTheme.color,
+                        ),
                       ),
-                      SizedBox(width: 10,),
-                      Text(
-                        'Tiles',
-                        style: TextStyle(
-                            color: Colors.white, fontSize: 15),
+                      Container(
+                        width: 75,
+                        child: Text(
+                          'Tiles',
+                          style: TextStyle(
+                              color: Theme.of(context).textTheme.headline6!.color,
+                              fontSize: 15),
+                        ),
                       )
                     ],
                   ),
@@ -99,6 +147,6 @@ class SortingDropdownModal extends StatelessWidget {
           ),
         ),
       ],
-    );;
+    );
   }
 }

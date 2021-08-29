@@ -26,7 +26,7 @@ class CategoryBarItem extends StatelessWidget {
           children: [
             Container(
               decoration: BoxDecoration(
-                color: Color(0xFF181B24).withOpacity(0.5),
+                color:Theme.of(context).dialogTheme.backgroundColor!.withOpacity(0.5),
                 borderRadius: BorderRadius.all(Radius.circular(10)),
               ),
               width: MediaQuery.of(context).size.width * percentage,
@@ -41,13 +41,13 @@ class CategoryBarItem extends StatelessWidget {
               contentPadding: EdgeInsets.only(right: 5, left: 13),
               title: Text(
                 name,
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(color: Theme.of(context).textTheme.headline6!.color),
               ),
               subtitle: Text('${percentage*100}%',
                   style:
-                      TextStyle(color: Colors.white, fontWeight: FontWeight.w100)),
+                      TextStyle(color:Theme.of(context).textTheme.headline6!.color, fontWeight: FontWeight.w100)),
               trailing: Text('USD $value',
-                  style: TextStyle(color: Colors.white, fontSize: 17)),
+                  style: TextStyle(color: Theme.of(context).textTheme.headline6!.color, fontSize: 17)),
             ),
           ],
         ),

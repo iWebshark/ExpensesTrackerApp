@@ -42,7 +42,7 @@ class CustomPieChart extends StatelessWidget {
                   ),
                   Text(
                     'USD 1010,06',
-                    style: TextStyle(color: Colors.white, fontSize: 18),
+                    style: TextStyle(color: Theme.of(context).textTheme.headline6!.color, fontSize: 18),
                   ),
                   SizedBox(height: 11),
                   Text(
@@ -51,7 +51,7 @@ class CustomPieChart extends StatelessWidget {
                   ),
                   Text(
                     'USD 1500',
-                    style: TextStyle(color: Colors.white, fontSize: 15),
+                    style: TextStyle(color: Theme.of(context).textTheme.headline6!.color, fontSize: 15),
                   ),
                 ],
               ),
@@ -67,7 +67,7 @@ class CustomPieChart extends StatelessWidget {
   Widget buildPieChart({bool borderedChart = false}) {
     return PieChart(PieChartData(
       borderData: FlBorderData(
-        show: true,
+        show: false,
       ),
       centerSpaceRadius: borderedChart ? double.infinity : 91,
       startDegreeOffset: 90,
@@ -75,7 +75,8 @@ class CustomPieChart extends StatelessWidget {
           .map((e) => PieChartSectionData(
                 showTitle: false,
                 value: e['value'],
-                color: borderedChart ? e['color'].withOpacity(0.15) : e['color'],
+                color:
+                    borderedChart ? e['color'].withOpacity(0.15) : e['color'],
                 radius: borderedChart ? 30 : 8,
               ))
           .toList(),

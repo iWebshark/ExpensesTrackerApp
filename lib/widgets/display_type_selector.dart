@@ -39,7 +39,7 @@ class _DisplayTypeSelectorState extends State<DisplayTypeSelector> {
                       textStyle: TextStyle(
                         fontSize: 21,
                         color: _options.indexOf(option) == _selectedIndex
-                            ? Colors.white
+                            ? Theme.of(context).textTheme.headline6!.color
                             : Colors.grey.withOpacity(0.7),
                       ),
                     ))
@@ -52,7 +52,7 @@ class _DisplayTypeSelectorState extends State<DisplayTypeSelector> {
             },
             icon: Icon(
               Icons.filter_list,
-              color: Colors.white,
+              color: Theme.of(context).iconTheme.color,
               size: 30,
             ))
       ],

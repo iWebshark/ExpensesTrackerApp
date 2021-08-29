@@ -37,8 +37,8 @@ class _PeriodOptionsListState extends State<PeriodOptionsList> {
                   onPressed: () => _onSelect(option),
                   textStyle: TextStyle(
                     color: _periods.indexOf(option) == _selectedIndex
-                        ? Colors.white
-                        : Colors.grey.withOpacity(0.7),
+                        ? Theme.of(context).textTheme.headline6!.color
+                        : Colors.grey.withOpacity(0.8),
                     fontSize: 18,
                   ),
                 ))

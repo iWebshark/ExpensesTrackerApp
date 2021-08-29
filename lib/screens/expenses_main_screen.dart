@@ -31,6 +31,16 @@ class _ExpensesMainScreenState extends State<ExpensesMainScreen> {
         ),
       ),
       bottomNavigationBar: CustomBottomNavigationBar(),
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.only(bottom: 320),
+        child: FloatingActionButton(
+          elevation: 0,
+          onPressed: () {},
+          backgroundColor: Theme.of(context).dialogTheme.backgroundColor!.withOpacity(0.5),
+          child: Icon(Icons.add, color: Theme.of(context).iconTheme.color,),
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
   }
 }

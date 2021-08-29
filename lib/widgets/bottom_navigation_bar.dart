@@ -27,11 +27,12 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
         border: Border(
           top: BorderSide(
             width: 1,
-            color: Color(0xFFEBEEF8).withOpacity(0.1),
+            color: Theme.of(context).textTheme.headline6!.color!.withOpacity(0.1),
           ),
         ),
       ),
       child: BottomNavigationBar(
+        elevation: 0,
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.credit_card),
@@ -51,8 +52,8 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
           ),
         ],
         type: BottomNavigationBarType.fixed,
-        selectedItemColor: Colors.white,
-        unselectedItemColor: Colors.grey.withOpacity(0.7),
+        selectedItemColor: Theme.of(context).textTheme.headline6!.color,
+        unselectedItemColor: Colors.grey.withOpacity(0.8),
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
       ),

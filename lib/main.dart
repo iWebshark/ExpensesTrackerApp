@@ -20,6 +20,13 @@ class MyApp extends StatelessWidget {
       bottomNavigationBarTheme:
           BottomNavigationBarThemeData(backgroundColor: ui.lightBGColor),
       fontFamily: 'SFUIDisplay',
+      textTheme: TextTheme(
+        headline6: TextStyle(color: Colors.black),
+      ),
+      iconTheme: IconThemeData(color: Colors.black.withOpacity(0.8)),
+      dialogTheme: DialogTheme(
+          backgroundColor: Color(0xFFFFFFFF),
+      ),
     );
   }
 
@@ -34,7 +41,13 @@ class MyApp extends StatelessWidget {
       bottomNavigationBarTheme:
           BottomNavigationBarThemeData(backgroundColor: ui.darkBGColor),
       fontFamily: 'SFUIDisplay',
-
+      textTheme: TextTheme(
+        headline6: TextStyle(color: Colors.white),
+      ),
+      iconTheme: IconThemeData(color: Colors.white),
+      dialogTheme: DialogTheme(
+        backgroundColor: Color(0xFF181B24)
+      ),
     );
   }
 
