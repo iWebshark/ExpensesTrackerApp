@@ -1,32 +1,12 @@
+import 'package:expenses_app/providers/expenses/expenses_provider.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class CustomPieChart extends StatelessWidget {
-  final List<Map<String, dynamic>> data = [
-    {
-      'color': Color(0xFFA239FF),
-      'value': 25.0,
-    },
-    {
-      'color': Color(0xFF36A3FF),
-      'value': 25.0,
-    },
-    {
-      'color': Color(0xFF41C7A1),
-      'value': 12.0,
-    },
-    {
-      'color': Color(0xFFFF4A66),
-      'value': 25.0,
-    },
-    {
-      'color': Color(0xFFFFC946),
-      'value': 13.0,
-    },
-  ];
-
   @override
   Widget build(BuildContext context) {
+    final data = Provider.of<ExpensesProvider>(context);
     return Container(
       height: 220,
       child: Stack(
@@ -41,8 +21,10 @@ class CustomPieChart extends StatelessWidget {
                     style: TextStyle(color: Colors.grey),
                   ),
                   Text(
-                    'USD 1010,06',
-                    style: TextStyle(color: Theme.of(context).textTheme.headline6!.color, fontSize: 18),
+                    'USD ${data.total}',
+                    style: TextStyle(
+                        color: Theme.of(context).textTheme.headline6!.color,
+                        fontSize: 18),
                   ),
                   SizedBox(height: 11),
                   Text(
@@ -51,32 +33,37 @@ class CustomPieChart extends StatelessWidget {
                   ),
                   Text(
                     'USD 1500',
-                    style: TextStyle(color: Theme.of(context).textTheme.headline6!.color, fontSize: 15),
+                    style: TextStyle(
+                        color: Theme.of(context).textTheme.headline6!.color,
+                        fontSize: 15),
                   ),
                 ],
               ),
             ),
           ),
-          buildPieChart(borderedChart: false),
-          buildPieChart(borderedChart: true),
+          buildPieChart(borderedChart: false, context: context),
+          buildPieChart(borderedChart: true, context: context),
         ],
       ),
     );
   }
 
-  Widget buildPieChart({bool borderedChart = false}) {
+  Widget buildPieChart(
+      {bool borderedChart = false, required BuildContext context}) {
+    final data = Provider.of<ExpensesProvider>(context);
     return PieChart(PieChartData(
       borderData: FlBorderData(
         show: false,
       ),
       centerSpaceRadius: borderedChart ? double.infinity : 91,
       startDegreeOffset: 90,
-      sections: data
+      sections: data.categories.entries
           .map((e) => PieChartSectionData(
                 showTitle: false,
-                value: e['value'],
-                color:
-                    borderedChart ? e['color'].withOpacity(0.15) : e['color'],
+                value: e.value,
+                color: borderedChart
+                    ? e.key.categoryIcon.iconColor.withOpacity(0.15)
+                    : e.key.categoryIcon.iconColor,
                 radius: borderedChart ? 30 : 8,
               ))
           .toList(),

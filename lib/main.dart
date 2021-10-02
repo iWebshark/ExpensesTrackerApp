@@ -1,6 +1,10 @@
+import 'package:expenses_app/providers/categories/categories_provider.dart';
+import 'package:expenses_app/providers/expenses/expenses_provider.dart';
+import 'package:expenses_app/providers/transactions_provider.dart';
 import 'package:expenses_app/screens/expenses_main_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 
 import './constants/UIConstants.dart' as ui;
 
@@ -53,11 +57,24 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: _lightTheme,
-        darkTheme: _darkTheme,
-        themeMode: ThemeMode.dark,
-        home: ExpensesMainScreen());
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => CategoriesProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => TransactionsProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => ExpensesProvider(),
+        ),
+      ],
+      child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          theme: _lightTheme,
+          darkTheme: _darkTheme,
+          themeMode: ThemeMode.dark,
+          home: ExpensesMainScreen()),
+    );
   }
 }

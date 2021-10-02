@@ -43,7 +43,7 @@ class CategoryBarItem extends StatelessWidget {
                 name,
                 style: TextStyle(color: Theme.of(context).textTheme.headline6!.color),
               ),
-              subtitle: Text('${percentage*100}%',
+              subtitle: Text('${(percentage*100).toStringAsFixed(2)}%',
                   style:
                       TextStyle(color:Theme.of(context).textTheme.headline6!.color, fontWeight: FontWeight.w100)),
               trailing: Text('USD $value',
